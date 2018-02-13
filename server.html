@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+  <title>Pusher ServerTest</title>
+
+</head>
+<body>
+  <script type="text/javascript">
+    function pushDate(){
+      var Pusher = require('pusher');
+      var pusher = new Pusher({
+        appId: '474309',
+        key: 'af894f403c77e822ac1b',
+        secret: '3903517ae558839f84a9',
+        cluster: 'eu',
+        encrypted: true
+      });
+      var d = new Date();
+      pusher.trigger('my-channel', 'my-event', {
+        "message": d
+      });
+    }
+  </script>
+  <input id="pushDate" type="button" value="Push Date" onclick="pushDate();"/>
+</body>

@@ -6,7 +6,6 @@
 
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
-
     var pusher = new Pusher('af894f403c77e822ac1b', {
       cluster: 'eu',
       encrypted: true
@@ -14,7 +13,11 @@
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      alert(data.message);
+      output=data.message;
+      document.getElementById("output").innerHTML = data.message;
     });
   </script>
 </head>
+<body>
+  <p id="output"></p>
+</body>
